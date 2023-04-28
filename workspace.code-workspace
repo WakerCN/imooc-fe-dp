@@ -1,11 +1,12 @@
 {
   "folders": [
     {
-      "path": "node"
+      "name": "workspace",
+      "path": "."
     },
     {
-      "name": "design-pattern",
-      "path": "."
+      "name": "node",
+      "path": "node"
     }
   ],
   "settings": {}
