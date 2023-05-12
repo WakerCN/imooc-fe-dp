@@ -5,6 +5,10 @@
       "path": "."
     },
     {
+      "name": "vue",
+      "path": "vue"
+    },
+    {
       "name": "node",
       "path": "node"
     }
