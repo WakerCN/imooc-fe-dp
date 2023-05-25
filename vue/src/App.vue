@@ -1,47 +1,53 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script lang="ts">
+import { defineComponent } from 'vue'
+import WacthDemo01 from './views/WacthDemo01.vue'
+
+export default defineComponent({
+  data() {
+    return {
+      name: 'Waker',
+      info: {
+        city: '武汉'
+      }
+    }
+  },
+  methods: {
+    changeName() {
+      this.name = `Waker ${Date.now()}`
+    },
+    changeCity() {
+      this.info.city = '上海'
+    }
+  },
+  watch: {
+    // name: {
+    //   handler(newValue, oldValue) {
+    //     console.log('%c 🍇 oldValue ', 'font-size:16px;color:#ffffff;background:#7ed6df', oldValue)
+    //     console.log('%c 🍿 newValue ', 'font-size:16px;color:#ffffff;background:#130f40', newValue)
+    //   },
+    //   immediate: true
+    // },
+    info: {
+      handler(newValue, oldValue) {
+        console.log('%c 🍩 oldValue ', 'font-size:16px;color:#ffffff;background:#f0932b', oldValue)
+        console.log('%c 🥃 newValue ', 'font-size:16px;color:#ffffff;background:#686de0', newValue)
+      },
+      deep: true
+    }
+  },
+  components: { WacthDemo01 }
+})
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <button @click="changeName">change name</button>
+  <button @click="changeCity">change city</button>
+  <main>{{ name }}</main>
+  <main>{{ info.city }}</main>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+  <br />
 
-  <main>
-    <TheWelcome />
-  </main>
+  <WacthDemo01 />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
+<style scoped></style>
